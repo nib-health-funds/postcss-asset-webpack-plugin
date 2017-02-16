@@ -1,0 +1,16 @@
+{
+  "name": "postcss-asset-webpack-plugin",
+  "version": "1.0.0",
+  "description": "Run postcss on CSS assets after compilation.",
+  "main": "index.js",
+  "keywords": [
+    "webpack",
+    "plugin",
+    "postcss",
+    "css",
+    "styles",
+    "emit"
+  ],
+  "author": ["James Newell <james@digitaledgeit.com.au>", "Laurie Jones <hello@lauriejones.me>"],
+  "license": "MIT"
+}
