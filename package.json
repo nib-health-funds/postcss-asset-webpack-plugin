@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Run postcss on CSS assets after compilation.",
   "main": "index.js",
+  "dependencies": {
+    "webpack-sources": "^0.1.4"
+  },
   "keywords": [
     "webpack",
     "plugin",

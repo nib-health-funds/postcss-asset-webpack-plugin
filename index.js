@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const SourceMapSource = require('webpack-sources');
+const SourceMapSource = require('webpack-sources').SourceMapSource;
 const postcss = require('postcss');
 
 class PostcssAssetWebpackPlugin {
