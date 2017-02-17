@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Run postcss on CSS assets after compilation.",
   "main": "index.js",
+  "repository": "nib-health-funds/postcss-asset-webpack-plugin",
   "dependencies": {
     "webpack-sources": "^0.1.4"
   },
