@@ -2,11 +2,11 @@
 
 Run `postcss` on CSS assets after compilation.
 
-###### Why
+##### Why
 
-`CSS-loader` only runs `postcss` on individual chunks. When using `ExtractTextPlugin` you want to run `postcss` on the whole, concatenated chunks.
+`css-loader` runs `postcss` on individual files. If you use `extract-text-webpack-plugin` you may want `postcss` to run after `extract-text-webpack-plugin` has concatenated files into a single CSS asset.
 
-For example, in order to dedupe your CSS you want to run postcss / CSSnano across the concatenated chunks of CSS.
+We had duplicate styles across multiple files because of nested `@import`s. `css-loader` wasn't removing the duplicate styles, because, when `css-loader` runs it doesn't know that the file being processed will be concatenated with other files, resulting in duplicated styles. This plugin allows us to run `cssnano` after the files have been concatenated and the duplicate styles are evident.
 
 ## Installation
 
@@ -18,11 +18,11 @@ npm install --save postcss-asset-webpack-plugin
 
 ```js
 const PostcssAssetWebpackPlugin = require('postcss-asset-webpack-plugin');
-const CSSnano = require('CSSnano');
+const cssnano = require('cssnano');
 
 module.exports = {
   plugins: {
-    new PostcssAssetWebpackPlugin({postcss: [CSSnano()]})
+    new PostcssAssetWebpackPlugin({postcss: [cssnano()]})
   }
 }
 ```
