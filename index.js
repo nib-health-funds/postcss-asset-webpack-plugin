@@ -19,8 +19,8 @@ class PostcssAssetWebpackPlugin {
 
         // Find source map if exists - could be separate asset or inline
         const mapName = css.match(/\/\*# sourceMappingURL=(.+)\*\/|$/)[1];
-        const mapInline = mapName.search(/^data:/) === 0;
-        const mapAsset = mapInline ? null : stats.assets[mapName];
+        const mapInline = mapName ? mapName.search(/^data:/) === 0 : false;
+        const mapAsset = mapName && !mapInline ? stats.assets[mapName] : null;
 
         const map = mapAsset ? mapAsset.source()
           : mapInline ? undefined // Postcss can read inlined sourcemap automatically
