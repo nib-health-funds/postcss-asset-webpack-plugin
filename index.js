@@ -15,7 +15,7 @@ class PostcssAssetWebpackPlugin {
 
       const promises = Object.keys(stats.assets).filter(name => path.extname(name) === '.css').map(name => {
         const css = stats.assets[name].source();
-        const map = stats.assets[name].map();
+        const map = typeof stats.assets[name].map === 'function' ? stats.assets[name].map() : undefined;
 
         return postcss(this.postcssOptions)
           .process(css, {from: name, to: name, map: {prev: map}})
